@@ -19,18 +19,21 @@ and how many they lost
 import random
 
 correct, wrong = 0, 0
-
+count = 0
 while True:
     side = random.choice(['heads', 'tails'])
     user_input = input("Type 'heads' or 'tails' or 'done ")
+    count += 1
     if user_input == 'done':
         print("Game Over...")
-        print('Number of correct guesses ', correct)
-        print('Number of incorrect guesses ', wrong)
+        print('Number of correct guesses {}'.format(correct))
+        print('Number of incorrect guesses {}'.format(wrong))
+        print('Number of total guesses {}'.format(count))
+        print('Percentage of Correct guesses = {} / {} = {}%'.format(correct, count, round((correct/count) * 100)))
         break
     elif user_input == side:
-        print("You Win!")
+        print("You Win! Coin landed on {}".format(side))
         correct += 1
     else:
-        print("Try again")
+        print("Try again! Coin landed on {}".format(side))
         wrong += 1
